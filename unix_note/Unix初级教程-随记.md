@@ -12,7 +12,7 @@ Password：输入口令su
 
 
 
-#### 切换到root用户并关机
+#### 普通用户切换到root用户并关机
 
 ```linux
 $ su -
@@ -23,6 +23,12 @@ $ su -
 ![image-20210318200302552](Unix初级教程-随记/image-20210318200302552.png)
 
 
+
+#### root用户切换到已经登录的普通用户
+
+```
+# su - 普通用户名
+```
 
 
 
@@ -945,7 +951,7 @@ $ mkdir -p xx/yy/zz ...................创建目录xx；xx下创建目录yy;yy�
 
 
 
-### 重排文本
+### 重排文本（剪切，复制，粘贴，清空）
 
 <img src="Unix初级教程-随记/image-20210325001703562.png" alt="image-20210325001703562" style="zoom:80%;" />
 
@@ -971,6 +977,690 @@ $ mkdir -p xx/yy/zz ...................创建目录xx；xx下创建目录yy;yy�
 
 ![image-20210325213623559](Unix初级教程-随记/image-20210325213623559.png)
 
+**部分实例：**
+
++ `d0`
+
+  <img src="Unix初级教程-随记/image-20210325214056042.png" alt="image-20210325214056042" style="zoom: 80%;" />
+
++ `dw`
+
+  <img src="Unix初级教程-随记/image-20210415082227700.png" alt="image-20210415082227700" style="zoom:80%;" />
+
++ `3dw`
+
+  <img src="Unix初级教程-随记/image-20210415082359276.png" alt="image-20210415082359276" style="zoom:80%;" />
+
+
+
+**带域控制键的修改操作符 `c`**
+
+<img src="Unix初级教程-随记/image-20210415083328837.png" alt="image-20210415083328837" style="zoom:80%;" />
+
++ **实例：**
+
+  <img src="Unix初级教程-随记/image-20210415083352264.png" alt="image-20210415083352264" style="zoom:80%;" />
+
+
+
+### 在 vi 中使用缓冲区
+
+**vi 中有两类临时缓冲区：数字编号缓冲区和命名缓冲区**
+
+
+
+#### 数字编号缓冲区
+
+<img src="Unix初级教程-随记/image-20210415083808638.png" alt="image-20210415083808638" style="zoom:80%;" />
+
++ 每次拾取文本到临时缓冲区中时，vi 必须将所有缓冲区中的内容依次后移一个缓冲区来空出缓冲区 1 ，接着将新内容放到缓冲区 1 中，后移过程如果缓冲区 9 中有内容将被舍弃。
+
+<img src="Unix初级教程-随记/image-20210415083858971.png" alt="image-20210415083858971" style="zoom:80%;" />
+
+<img src="Unix初级教程-随记/image-20210415084053865.png" alt="image-20210415084053865" style="zoom:80%;" />
+
+
+
+#### 字母序缓冲区
+
+<img src="Unix初级教程-随记/image-20210415084751831.png" alt="image-20210415084751831" style="zoom:80%;" />
+
+
+
+
+
+### 光标定位键
+
++ **vi 翻页键**
+
+  <img src="Unix初级教程-随记/image-20210415084905181.png" alt="image-20210415084905181" style="zoom:80%;" />
+
++ `行号G`
+
+  <img src="Unix初级教程-随记/image-20210415085021153.png" alt="image-20210415085021153" style="zoom:80%;" />
+
++ [Ctrl - g]
+
+  ![image-20210415085105546](Unix初级教程-随记/image-20210415085105546.png)
+
+
+
+### 定制 vi 编辑器
+
++ `set all`
+
+  <img src="Unix初级教程-随记/image-20210415085718479.png" alt="image-20210415085718479" style="zoom:80%;" />
+
+
+
+**set设置选项命令：**
+
+<img src="Unix初级教程-随记/image-20210415085836911.png" alt="image-20210415085836911" style="zoom:80%;" />
+
++ 布尔选项
+
+  <img src="Unix初级教程-随记/image-20210415085918896.png" alt="image-20210415085918896" style="zoom:80%;" />
+
++ 数字式选项
+
+  <img src="Unix初级教程-随记/image-20210415085937775.png" alt="image-20210415085937775" style="zoom: 80%;" />
+
++ 串选项
+
+  <img src="Unix初级教程-随记/image-20210415090012854.png" alt="image-20210415090012854" style="zoom:80%;" />
+
+
+
+**set其他命名：**
+
+<img src="Unix初级教程-随记/image-20210415090341451.png" alt="image-20210415090341451" style="zoom:80%;" />
+
+
+
+
+
+#### 设置 vi 环境
+
+<img src="Unix初级教程-随记/image-20210415091212334.png" alt="image-20210415091212334" style="zoom:80%;" />
+
+
+
+**一些有用的 vi 参数：**
+
+<img src="Unix初级教程-随记/image-20210415091308894.png" alt="image-20210415091308894" style="zoom:80%;" />
+
+<img src="Unix初级教程-随记/image-20210415091343198.png" alt="image-20210415091343198" style="zoom: 67%;" />
+
+
+
+#### 行长度和行回绕
+
+<img src="Unix初级教程-随记/image-20210415091843977.png" alt="image-20210415091843977" style="zoom:80%;" />
+
++ **wrapmargin：**
+
+  <img src="Unix初级教程-随记/image-20210415091947164.png" alt="image-20210415091947164" style="zoom:80%;" />
+
+
+
+#### 缩写与宏
+
+![image-20210415093453106](Unix初级教程-随记/image-20210415093453106.png)
+
+
+
++ **缩写操作符（db）：**
+
+  <img src="Unix初级教程-随记/image-20210415093851011.png" alt="image-20210415093851011" style="zoom:80%;" />
+
+  <img src="Unix初级教程-随记/image-20210415093941501.png" alt="image-20210415093941501" style="zoom:80%;" />
+
++ **宏操作符（map）：**
+
+  <img src="Unix初级教程-随记/image-20210415094404964.png" alt="image-20210415094404964" style="zoom:80%;" />
+
+  <img src="Unix初级教程-随记/image-20210415094939290.png" alt="image-20210415094939290" style="zoom:90%;" />
+
+  <img src="Unix初级教程-随记/image-20210415094950457.png" alt="image-20210415094950457" style="zoom: 80%;" />
+
+  **实例：**
+
+  <img src="Unix初级教程-随记/image-20210415094849584.png" alt="image-20210415094849584" style="zoom:67%;" />
+
+
+
+
+
+#### .exrc文件
+
+<img src="Unix初级教程-随记/image-20210415095301754.png" alt="image-20210415095301754" style="zoom:80%;" />
+
+<img src="Unix初级教程-随记/image-20210415095229956.png" alt="image-20210415095229956" style="zoom:80%;" />
+
+
+
 **实例：**
 
-<img src="Unix初级教程-随记/image-20210325214056042.png" alt="image-20210325214056042" style="zoom:90%;" />
+<img src="Unix初级教程-随记/image-20210415095422793.png" alt="image-20210415095422793" style="zoom:80%;" />
+
+
+
+
+
+### 最后的 vi 命令
+
+#### 运行shell
+
+<img src="Unix初级教程-随记/image-20210415144642462.png" alt="image-20210415144642462" style="zoom:80%;" />
+
+
+
+
+
+#### 行连接
+
+<img src="Unix初级教程-随记/image-20210415145559886.png" alt="image-20210415145559886" style="zoom:80%;" />
+
+
+
+
+
+#### 搜索和替换
+
+<img src="Unix初级教程-随记/image-20210415150014344.png" alt="image-20210415150014344" style="zoom:80%;" />
+
+
+
+
+
+### 基本命名总结
+
+<img src="Unix初级教程-随记/image-20210415150058188.png" alt="image-20210415150058188" style="zoom: 80%;" />
+
+
+
+
+
+## 第七章 UNIX文件系统（续）
+
+### 读取文件
+
+<img src="Unix初级教程-随记/image-20210415151615015.png" alt="image-20210415151615015" style="zoom:80%;" />
+
+<img src="Unix初级教程-随记/image-20210415151703925.png" alt="image-20210415151703925" style="zoom:80%;" />
+
+
+
+#### vi 编辑器的只读版：view命令
+
+<img src="Unix初级教程-随记/image-20210415151830432.png" alt="image-20210415151830432" style="zoom:80%;" />
+
+
+
++ **读取文件：`pg`命令**
+
+  <img src="Unix初级教程-随记/image-20210415151945618.png" alt="image-20210415151945618" style="zoom:80%;" />
+
+  ![image-20210415151959614](Unix初级教程-随记/image-20210415151959614.png)
+
+  ![image-20210415152023959](Unix初级教程-随记/image-20210415152023959.png)
+
+  <img src="Unix初级教程-随记/image-20210415152548269.png" alt="image-20210415152548269" style="zoom:80%;" />
+
+  **实例：**
+
+  <img src="Unix初级教程-随记/image-20210415152525889.png" alt="image-20210415152525889" style="zoom:80%;" />
+
++ **指定页和行数**
+
+  <img src="Unix初级教程-随记/image-20210415153017501.png" alt="image-20210415153017501" style="zoom:80%;" />
+
+
+
+
+
+### shell 重定向
+
+<img src="Unix初级教程-随记/image-20210415154307131.png" alt="image-20210415154307131" style="zoom:80%;" />
+
+
+
+#### 输出重定向
+
+<img src="Unix初级教程-随记/image-20210415154522269.png" alt="image-20210415154522269" style="zoom:80%;" />
+
+
+
+**实例：**
+
++ **`>`**
+
+<img src="Unix初级教程-随记/image-20210415154649137.png" alt="image-20210415154649137" style="zoom:80%;" />
+
++ **`>>`**
+
+  ![image-20210415154811644](Unix初级教程-随记/image-20210415154811644.png)
+
+
+
+
+
+#### 输入重定向
+
+![image-20210415155359941](Unix初级教程-随记/image-20210415155359941.png)
+
+![image-20210415155409632](Unix初级教程-随记/image-20210415155409632.png)
+
+
+
+**实例：**
+
+<img src="Unix初级教程-随记/image-20210415161518756.png" alt="image-20210415161518756" style="zoom:80%;" />
+
+
+
+**cat 命令和输入重定向结合**
+
++ **创建文件**
+
+  <img src="Unix初级教程-随记/image-20210415161746292.png" alt="image-20210415161746292"  />
+
+  **实例：**
+
+  <img src="Unix初级教程-随记/image-20210415161838308.png" alt="image-20210415161838308" style="zoom:80%;" />
+
+  <img src="Unix初级教程-随记/image-20210415161901207.png" alt="image-20210415161901207" style="zoom:80%;" />
+
++ **复制文件**
+
+  **实例：**
+
+  + <img src="Unix初级教程-随记/image-20210415162206256.png" alt="image-20210415162206256" style="zoom:80%;" />
+
+  + <img src="Unix初级教程-随记/image-20210415162229341.png" alt="image-20210415162229341" style="zoom:80%;" />
+  + <img src="Unix初级教程-随记/image-20210415162423473.png" alt="image-20210415162423473" style="zoom:80%;" />
+
+
+
+### 文件格式化
+
+<img src="Unix初级教程-随记/image-20210415162713263.png" alt="image-20210415162713263" style="zoom:80%;" />
+
+
+
++ **`pr`命令**
+
+  <img src="Unix初级教程-随记/image-20210415163118998.png" alt="image-20210415163118998" style="zoom:80%;" />
+
+  **实例：**
+
+  <img src="Unix初级教程-随记/image-20210415163259071.png" alt="image-20210415163259071" style="zoom:80%;" />
+
+  <img src="Unix初级教程-随记/image-20210415163313003.png" alt="image-20210415163313003" style="zoom:80%;" />
+
+  **pr选项：**
+
+  <img src="Unix初级教程-随记/image-20210415163349883.png" alt="image-20210415163349883" style="zoom:80%;" />
+
+  <img src="Unix初级教程-随记/image-20210415163429335.png" alt="image-20210415163429335" style="zoom:80%;" />
+
+
+
+
+
+
+
+### 文件处理命令
+
+![image-20210415163706930](Unix初级教程-随记/image-20210415163706930.png)
+
+
+
++ **复制文件：`cp`命令**
+
+  <img src="Unix初级教程-随记/image-20210415164422349.png" alt="image-20210415164422349" style="zoom:80%;" />
+
+  <img src="Unix初级教程-随记/image-20210415164432197.png" alt="image-20210415164432197" style="zoom:80%;" />
+
+  + **cp选项：**
+
+    ![image-20210415164656629](Unix初级教程-随记/image-20210415164656629.png)
+
+    <img src="Unix初级教程-随记/image-20210415164729690.png" alt="image-20210415164729690" style="zoom:80%;" />
+
+    <img src="Unix初级教程-随记/image-20210415164815751.png" alt="image-20210415164815751" style="zoom:80%;" />
+
++ **移动文件：`mv`命令**
+
+  <img src="Unix初级教程-随记/image-20210415164957826.png" alt="image-20210415164957826" style="zoom:80%;" />
+
++ **链接文件：`ln`命令**
+
+  <img src="Unix初级教程-随记/image-20210415165320594.png" alt="image-20210415165320594" style="zoom:80%;" />
+
+<img src="Unix初级教程-随记/image-20210415165414206.png" alt="image-20210415165414206" style="zoom:80%;" />
+
++ **计算字数：`wc`命令**
+
+  ![image-20210415165558707](Unix初级教程-随记/image-20210415165558707.png)
+
+  + <img src="Unix初级教程-随记/image-20210415165656334.png" alt="image-20210415165656334" style="zoom:80%;" />
+
+  + <img src="Unix初级教程-随记/image-20210415165923664.png" alt="image-20210415165923664" style="zoom:80%;" />
+
+  + **wc选项：**
+
+    <img src="Unix初级教程-随记/image-20210415170517818.png" alt="image-20210415170517818" style="zoom:80%;" />
+
+
+
+
+
+### 文件名置换
+
+![image-20210415170749514](Unix初级教程-随记/image-20210415170749514.png)
+
++ **`？`元字符**
+
+  <img src="Unix初级教程-随记/image-20210415170857338.png" alt="image-20210415170857338" style="zoom: 67%;" />
+
++ **`*`元字符**
+
+  <img src="Unix初级教程-随记/image-20210415170956318.png" alt="image-20210415170956318" style="zoom:67%;" />
+
+  <img src="Unix初级教程-随记/image-20210415171239821.png" alt="image-20210415171239821" style="zoom:67%;" />
+
++ `[]`元字符
+
+  <img src="Unix初级教程-随记/image-20210415171325560.png" alt="image-20210415171325560" style="zoom:80%;" />
+
+  <img src="Unix初级教程-随记/image-20210415171414192.png" alt="image-20210415171414192" style="zoom:67%;" />
+
+  <img src="Unix初级教程-随记/image-20210415171525805.png" alt="image-20210415171525805" style="zoom:67%;" />
+
+  
+
+
+
+### 其他文件操作命令
+
++ **寻找文件：find命令**
+
+  <img src="Unix初级教程-随记/image-20210415171803961.png" alt="image-20210415171803961" style="zoom:67%;" />
+
+  + **查找选项：**
+
+    <img src="Unix初级教程-随记/image-20210415171825034.png" alt="image-20210415171825034"  />
+
+    <img src="Unix初级教程-随记/image-20210415172003954.png" alt="image-20210415172003954" style="zoom:80%;" />
+
+    <img src="Unix初级教程-随记/image-20210415172140105.png" alt="image-20210415172140105" style="zoom:80%;" />
+
+    <img src="Unix初级教程-随记/image-20210415172220448.png" alt="image-20210415172220448" style="zoom: 80%;" />
+
+    <img src="Unix初级教程-随记/image-20210415172254662.png" alt="image-20210415172254662" style="zoom:80%;" />
+
+    <img src="Unix初级教程-随记/image-20210415172357677.png" alt="image-20210415172357677" style="zoom:80%;" />
+
+  + **动作选项**
+
+    ![image-20210415172524799](Unix初级教程-随记/image-20210415172524799.png)
+
+    P135
+
++ **显示文件头部：`head`命令**
+
+  <img src="Unix初级教程-随记/image-20210415172722085.png" alt="image-20210415172722085" style="zoom:80%;" />
+
+  <img src="Unix初级教程-随记/image-20210415172753692.png" alt="image-20210415172753692" style="zoom:80%;" />
+
++ **显示文件的尾部：`tail`命令**
+
+  <img src="Unix初级教程-随记/image-20210415172938388.png" alt="image-20210415172938388" style="zoom:67%;" />
+
+  <img src="Unix初级教程-随记/image-20210415173001098.png" alt="image-20210415173001098" style="zoom:80%;" />
+
++ **选择文件的一部分：`cut`命令**
+
+  <img src="Unix初级教程-随记/image-20210415173609700.png" alt="image-20210415173609700" style="zoom:80%;" />
+
+  **cut选项**
+
+  <img src="Unix初级教程-随记/image-20210415173503495.png" alt="image-20210415173503495" style="zoom: 80%;" />
+
+  ![image-20210415173706012](Unix初级教程-随记/image-20210415173706012.png)
+
+  <img src="Unix初级教程-随记/image-20210415173754637.png" alt="image-20210415173754637" style="zoom:80%;" />
+
+  <img src="Unix初级教程-随记/image-20210415173858230.png" alt="image-20210415173858230" style="zoom:80%;" />
+
++ **链接文件：paste命令**
+
+  ![image-20210415173940693](Unix初级教程-随记/image-20210415173940693.png)
+
+  ![image-20210415173953242](Unix初级教程-随记/image-20210415173953242.png)
+
+  ![image-20210415180419055](Unix初级教程-随记/image-20210415180419055.png)
+
++ **另一个页面查看工具：more命令**
+
+  <img src="Unix初级教程-随记/image-20210415180442570.png" alt="image-20210415180442570" style="zoom:80%;" />
+
+
+
+
+
+### UNIX内部：文件系统
+
+![image-20210415180648317](Unix初级教程-随记/image-20210415180648317.png)
+
+
+
+
+
+#### UNIX磁盘结构
+
+![image-20210415180800882](Unix初级教程-随记/image-20210415180800882.png)
+
++ **主引导块**
+
+  <img src="Unix初级教程-随记/image-20210415180820691.png" alt="image-20210415180820691" style="zoom:80%;" />
+
++ **超级块**
+
+  <img src="Unix初级教程-随记/image-20210415180917149.png" alt="image-20210415180917149" style="zoom:80%;" />
+
++ **i 节点列表块**
+
+  <img src="Unix初级教程-随记/image-20210415181014667.png" alt="image-20210415181014667" style="zoom:80%;" />
+
++ **i 节点和目录**
+
+  <img src="Unix初级教程-随记/image-20210415181037791.png" alt="image-20210415181037791" style="zoom:80%;" />
+
+
+
+
+
+#### 整体过程
+
+<img src="Unix初级教程-随记/image-20210415181344873.png" alt="image-20210415181344873" style="zoom:80%;" />
+
+<img src="Unix初级教程-随记/image-20210415181612462.png" alt="image-20210415181612462" style="zoom:80%;" />
+
+
+
++ `ls -i`
+
+  <img src="Unix初级教程-随记/image-20210415181709945.png" alt="image-20210415181709945" style="zoom:80%;" />
+
+
+
+
+
+### 基本命令总结
+
+<img src="Unix初级教程-随记/image-20210415181909673.png" alt="image-20210415181909673" style="zoom:80%;" />
+
+<img src="Unix初级教程-随记/image-20210415181935776.png" alt="image-20210415181935776" style="zoom:80%;" />
+
+<img src="Unix初级教程-随记/image-20210415181955908.png" alt="image-20210415181955908" style="zoom:80%;" />
+
+<img src="Unix初级教程-随记/image-20210415182005197.png" alt="image-20210415182005197" style="zoom:80%;" />
+
+
+
+
+
+## 第八章 探索 shell
+
+### UNIX shell
+
+<img src="Unix初级教程-随记/image-20210415192117591.png" alt="image-20210415192117591" style="zoom:80%;" />
+
+
+
+**用户与操作系统通过shell进行通信**
+
+<img src="Unix初级教程-随记/image-20210415192156582.png" alt="image-20210415192156582" style="zoom:80%;" />
+
+
+
+<img src="Unix初级教程-随记/image-20210415192615141.png" alt="image-20210415192615141" style="zoom:80%;" />
+
+<img src="Unix初级教程-随记/image-20210415193124835.png" alt="image-20210415193124835" style="zoom:80%;" />
+
+
+
+#### shell的主要功能
+
+<img src="Unix初级教程-随记/image-20210415193439460.png" alt="image-20210415193439460" style="zoom:80%;" />
+
+
+
+**shell的主要特征：**
+
+<img src="Unix初级教程-随记/image-20210415194158601.png" alt="image-20210415194158601" style="zoom:80%;" />
+
+<img src="Unix初级教程-随记/image-20210415194556797.png" alt="image-20210415194556797" style="zoom:80%;" />
+
+
+
+
+
++ **显示信息：`echo`命令**
+
+  <img src="Unix初级教程-随记/image-20210415194846594.png" alt="image-20210415194846594" style="zoom:80%;" />
+
+  <img src="Unix初级教程-随记/image-20210415194920603.png" alt="image-20210415194920603" style="zoom:80%;" />
+
+  <img src="Unix初级教程-随记/image-20210415195026720.png" alt="image-20210415195026720" style="zoom:80%;" />
+
+  + **消除元字符的特殊含义**
+
+    <img src="Unix初级教程-随记/image-20210415195326894.png" alt="image-20210415195326894" style="zoom:80%;" />
+
+    + **反斜杠**
+
+      <img src="Unix初级教程-随记/image-20210415195420280.png" alt="image-20210415195420280" style="zoom:80%;" />
+
+      <img src="Unix初级教程-随记/image-20210415195508585.png" alt="image-20210415195508585" style="zoom:80%;" />
+
+    + **双引号**
+
+      <img src="Unix初级教程-随记/image-20210415195847648.png" alt="image-20210415195847648" style="zoom:80%;" />
+
+      <img src="Unix初级教程-随记/image-20210415195952953.png" alt="image-20210415195952953" style="zoom:80%;" />
+
+    + **单引号**
+
+      <img src="Unix初级教程-随记/image-20210415200038008.png" alt="image-20210415200038008" style="zoom:80%;" />
+
+      <img src="Unix初级教程-随记/image-20210415200104224.png" alt="image-20210415200104224" style="zoom:80%;" />
+
+
+
+
+
+### shell变量
+
+<img src="Unix初级教程-随记/image-20210415202554452.png" alt="image-20210415202554452" style="zoom:80%;" />
+
++ **环境变量**
+
+  <img src="Unix初级教程-随记/image-20210415202917953.png" alt="image-20210415202917953" style="zoom: 80%;" />
+
++ **局部变量**
+
+  <img src="Unix初级教程-随记/image-20210415202949450.png" alt="image-20210415202949450" style="zoom:80%;" />
+
+
+
+
+
+**显示和清除变量：set和unset命令**
+
+![image-20210415203111920](Unix初级教程-随记/image-20210415203111920.png)
+
+<img src="Unix初级教程-随记/image-20210415203224185.png" alt="image-20210415203224185" style="zoom:80%;" />
+
+<img src="Unix初级教程-随记/image-20210415203233643.png" alt="image-20210415203233643" style="zoom:80%;" />
+
+<img src="Unix初级教程-随记/image-20210415203305898.png" alt="image-20210415203305898" style="zoom:80%;" />
+
+
+
+**给变量赋值**
+
+<img src="Unix初级教程-随记/image-20210415203636030.png" alt="image-20210415203636030" style="zoom:80%;" />
+
+
+
+**显示shell变量的值**
+
+<img src="Unix初级教程-随记/image-20210415203728508.png" alt="image-20210415203728508" style="zoom:80%;" />
+
+<img src="Unix初级教程-随记/image-20210415204034035.png" alt="image-20210415204034035" style="zoom:80%;" />
+
+
+
+
+
+**理解标准shell变量**
+
+<img src="Unix初级教程-随记/image-20210415205654045.png" alt="image-20210415205654045" style="zoom:80%;" />
+
+
+
++ **HOME变量**
+
+  <img src="Unix初级教程-随记/image-20210415205816726.png" alt="image-20210415205816726" style="zoom:80%;" />
+
+  <img src="Unix初级教程-随记/image-20210415205901884.png" alt="image-20210415205901884" style="zoom:80%;" />
+
++ **IFS变量**
+
+  <img src="Unix初级教程-随记/image-20210415210154984.png" alt="image-20210415210154984" style="zoom:80%;" />
+
+  <img src="Unix初级教程-随记/image-20210415210208984.png" alt="image-20210415210208984" style="zoom:80%;" />
+
++ **MAIL变量**
+
+  <img src="Unix初级教程-随记/image-20210415210259195.png" alt="image-20210415210259195" style="zoom:80%;" />
+
++ **MAILCHECK变量**
+
+  <img src="Unix初级教程-随记/image-20210415210406955.png" alt="image-20210415210406955" style="zoom:80%;" />
+
++ **PATH变量**
+
+  略P158~159
+
+
+
+
+
+### 更多的元字符
+
+P159
+
